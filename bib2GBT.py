@@ -39,6 +39,11 @@ def type_J(bibJson, reftype, bibtype):
     if "pages" in bibJson: _pages = ':' + bibJson["pages"]
     else: _pages = ""
 
+    # cnki
+    if ("number" in bibJson) & ("pages" not in bibJson):
+        _number = ""
+        _pages = ':' + bibJson["number"]
+
     fileBGT = (getAuthor(bibJson) + ". " + 
                bibJson["title"] + 
                reftype[bibtype] + ". " + 
@@ -86,7 +91,7 @@ def mainProscess(bibFile: str) -> str:
 
     index_1 = lines[0].find('@')
     index_2 = lines[0].find('{')
-    bibtype = lines[0][index_1 + 1: index_2].replace(' ', '')
+    bibtype = lines[0][index_1 + 1: index_2].replace(' ', '').lower()
 
 
     jsonLines =[]
@@ -112,11 +117,15 @@ def mainProscess(bibFile: str) -> str:
 
     bibJson = json.loads("".join(jsonLines).replace('\r', '').replace('\n', ''))
     reftype = {"article": "[J]",
-                "mastersthesis": "[D]",
-                "inproceedings": "[C]",
-                "techreport": "[N]",
-                "misc": "[P]",
-                "manual": "[P]"}
+            "mastersthesis": "[D]",
+            "phdthesis": "[D]",
+            "inproceedings": "[C]",
+            "conference": "[C]",
+            "book": "[M]",
+            "booklet": "[M]",
+            "techreport": "[N]",
+            "misc": "[P]",
+            "manual": "[P]"}
 
     match reftype[bibtype]:
         case "[J]":
