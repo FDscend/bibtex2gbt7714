@@ -163,9 +163,8 @@ def mainProscess(bibFile: str) -> str:
 
     fileBGT = []
 
-    for i in range(lines_multibib.__len__()).__reversed__():
-        _lines = lines_multibib[i]
-    
+    for _lines in lines_multibib:
+   
         index_1 = _lines[0].find('@')
         index_2 = _lines[0].find('{')
     
