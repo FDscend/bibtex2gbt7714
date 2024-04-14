@@ -80,6 +80,26 @@ month={1},
 
 除此之外，多名作者之间使用的不是 and ，而是使用了逗号与 and 符号
 
+- 还有像 Oxford Academic 这种，同时用双引号和花括号的：
+
+```py
+@article{10.1093/rfs/3.3.431,
+    author = {Lo, Andrew W. and MacKinlay, A. Craig},
+    title = "{Data-Snooping Biases in Tests of Financial Asset Pricing Models}",
+    journal = {The Review of Financial Studies},
+    volume = {3},
+    number = {3},
+    pages = {431-467},
+    year = {2015},
+    month = {04},
+    abstract = "{Tests of financial asset pricing models may yield misleading inferences when properties of the data are used to construct the test statistics. In particular, such tests are often based on returns to portfolios of common stock, where portfolios are constructed by sorting on some empirically motivated characteristic of the securities such as market value of equity. Analytical calculations, Monte Carlo simulations, and two empirical examples show that the effects of this type of data snooping can be substantial.}",
+    issn = {0893-9454},
+    doi = {10.1093/rfs/3.3.431},
+    url = {https://doi.org/10.1093/rfs/3.3.431},
+    eprint = {https://academic.oup.com/rfs/article-pdf/3/3/431/24416126/030431.pdf},
+}
+```
+
 # 标准不一致
 
 - 总结以上内容，我们大概可以知道，BibTeX 是一种字典格式，但没有一个完全统一标准，不同渠道的文件可能存在表现不一致的情况。比如下面这个例子：
